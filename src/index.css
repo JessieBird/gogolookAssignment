@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: #F0F4F8;
+  color: #2C3E50;
+  margin: 0;
+  padding: 0;
+}
+
