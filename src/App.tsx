@@ -119,7 +119,8 @@ const CASES: Case[] = [
   }
 ];
 
-// TODO: 將下方 CTA 的 url 改為真實的 Scam University / ScamAdviser 連結
+const SCAM_ADV_URL = 'https://www.scamadviser.com';
+
 const PERSONALITIES = [
   {
     id: 'analyst', title: '冷血分析師', typeShort: '理性×懷疑×獨立', rank: '頂尖主任醫師', rankColor: 'text-[#38A169]',
@@ -127,10 +128,9 @@ const PERSONALITIES = [
     stampClass: 'border-[#38A169] text-[#38A169]', stampText: '免疫\n出院',
     remark: '每封可疑郵件都要查網域，每通電話都要先掛掉再回撥。家人覺得你很煩，詐騙集團覺得你很無聊，但你的帳戶從來沒少過任何一分錢。',
     weaknesses: ['過度自信的盲點', '家人中招時的延遲反應', 'AI 新型變種話術'],
-    prescription: '升級成家庭防詐疫苗接種員',
-    prescriptionDesc: '你的體質優良，但家人不一定。建議加入 Scam University 助教計畫，把診斷書分享給 3 位高風險家人，並訂閱 ScamAdviser 掌握最新情報。',
-    primaryCta: { label: '加入 Scam Uni 助教計畫', url: '#' },
-    secondaryCta: { label: '訂閱 ScamAdviser 每日警報', url: '#' }
+    prescription: '頒發「家庭防詐疫苗接種員」證書',
+    prescriptionDesc: '體質優良到連詐騙集團都懶得跟你浪費話術。建議每週到 ScamAdviser 首頁巡一下最新詐騙案例，保持戰鬥力；順手把這張診斷書轉發給家中那位相信「一天十顆酪梨會瘦」的阿姨，她比你更需要。還不服氣？下方「重新實習」歡迎挑戰下一回合。',
+    primaryCta: { label: '前往 ScamAdviser 查看最新詐騙案例', url: SCAM_ADV_URL }
   },
   {
     id: 'guardian', title: '善良受難者', typeShort: '感性×衝動×信任×從眾', rank: '可憐實習生', rankColor: 'text-[#DD6B20]',
@@ -138,10 +138,9 @@ const PERSONALITIES = [
     stampClass: 'border-[#DD6B20] text-[#DD6B20]', stampText: '需要\n住院',
     remark: '你不是笨，你只是太好了。看到有限時特價手會抖，看到人落難就想幫。詐騙集團最愛你這種人。建議每次行動前先深呼吸三秒。',
     weaknesses: ['情緒勒索型詐騙', '假愛情 / 交友陷阱', '假公益募款'],
-    prescription: 'Scam Uni 防詐急救包（7 天基礎療程）',
-    prescriptionDesc: '你的同理心是超能力也是破口。先入住 Scam University 防詐病房完成 3 堂「情緒勒索辨識」基礎課並領取防禦道具，搭配 ScamAdviser 做日常網址體檢。',
-    primaryCta: { label: '領取防禦道具 @ Scam Uni', url: '#' },
-    secondaryCta: { label: '安裝 ScamAdviser 警示器', url: '#' }
+    prescription: '7 日防詐免疫療程（每日服用，症狀消退前勿停藥）',
+    prescriptionDesc: '你不是笨，只是太好了——詐騙集團最愛你這款的。建議立刻裝一個 ScamAdviser 瀏覽器外掛當作防禦機制，讓它在你手滑前幫你喊停；再到 ScamAdviser 首頁翻閱最新詐騙案例，當作心理預防針每日服用。吞完可以按下方「重新實習」複測，看這次會不會少掉一顆愛心。',
+    primaryCta: { label: '前往 ScamAdviser 翻閱詐騙案例庫', url: SCAM_ADV_URL }
   },
   {
     id: 'expert', title: '嘴砲專家', typeShort: '理性×衝動×懷疑×從眾', rank: '資深主治醫師', rankColor: 'text-[#2B6CB0]',
@@ -149,10 +148,9 @@ const PERSONALITIES = [
     stampClass: 'border-[#2B6CB0] text-[#2B6CB0]', stampText: '需\n觀察',
     remark: '你知道所有詐騙手法，但真的遇到的時候，你還是會猶豫三秒然後點下去。懂很多但執行力是零，你的腳正踩在知識與行動的鴻溝上。',
     weaknesses: ['假投資 / AI 老師話術', '限時促銷倒數', '專業偽裝身份'],
-    prescription: 'ScamAdviser 即時警示器 + 執行力臨床訓練',
-    prescriptionDesc: '你懂理論，缺的是臨場那 3 秒的停頓。裝一個會在你手滑前叫你的 ScamAdviser 外掛，再去 Scam Uni 補實戰情境題，把知識逼出肌肉記憶。',
-    primaryCta: { label: '安裝 ScamAdviser 瀏覽器外掛', url: '#' },
-    secondaryCta: { label: '補修 Scam Uni 實戰情境課', url: '#' }
+    prescription: '知識充足，執行力補強 — 隨身急救外掛 1 組',
+    prescriptionDesc: '你可以在酒桌上滔滔不絕講 3 小時防詐話術，但真的滑到可疑連結還是會手抖。建議裝一個會在你手滑前幫你叫救命的 ScamAdviser 外掛，再每週去首頁翻閱最新案例維持戰感。下方「重新實習」歡迎你再證明一次自己是嘴砲派還是行動派。',
+    primaryCta: { label: '前往 ScamAdviser 看最新詐騙案例', url: SCAM_ADV_URL }
   },
   {
     id: 'hunter', title: '直覺獵人', typeShort: '感性×謹慎×信任×獨立', rank: '急診總醫師', rankColor: 'text-[#805AD5]',
@@ -160,10 +158,9 @@ const PERSONALITIES = [
     stampClass: 'border-[#805AD5] text-[#805AD5]', stampText: '觀察\n中',
     remark: '靠感覺行動，有時候比任何人都早發現不對勁，說不出哪裡怪就是怪。但有時候又被騙得莫名其妙，這就是你的直覺雙刃劍。',
     weaknesses: ['高擬真 AI 變聲', '精心設計的釣魚網站', '深層情境式劇本'],
-    prescription: '直覺 + 工具雙保險組合',
-    prescriptionDesc: '你的直覺很準但不穩定。配一個 ScamAdviser 當副駕駛，可疑網址/電話先查一下；再去 Scam University 進修進階情境課，把不穩的那一半補起來。',
-    primaryCta: { label: '用 ScamAdviser 檢查網址', url: '#' },
-    secondaryCta: { label: '進修 Scam Uni 進階單元', url: '#' }
+    prescription: '直覺 + 工具雙保險組合（副駕駛同行）',
+    prescriptionDesc: '你的直覺很準但不穩定，就像擲骰子。配一個 ScamAdviser 當副駕駛，遇到可疑網址或電話先查一下再相信你的第六感；順手裝一下外掛讓潛意識自動升級。下方按鈕按下去，看看這次你的直覺還夠不夠敏銳。',
+    primaryCta: { label: '用 ScamAdviser 檢查網址 / 電話', url: SCAM_ADV_URL }
   },
   {
     id: 'believer', title: '制度信徒', typeShort: '理性×謹慎×信任×從眾', rank: '住院醫師', rankColor: 'text-[#E53E3E]',
@@ -171,10 +168,9 @@ const PERSONALITIES = [
     stampClass: 'border-[#E53E3E] text-[#E53E3E]', stampText: '需\n補修',
     remark: '相信官方、相信程序。這讓你在一般情況下非常可靠，但也正因如此，最容易被「假官方」騙。只要穿制服你就信了。',
     weaknesses: ['假公務員 / 假警察', '假銀行 / 假政府通知', '假官方客服電話'],
-    prescription: '假官方辨識特訓（Scam Uni 必修課）',
-    prescriptionDesc: '你的弱點非常明確：看到制服就信。去 Scam University 補「如何驗證真官方」必修課；每次收到官方通知，先用 ScamAdviser 驗證網址再動作。',
-    primaryCta: { label: '修 Scam Uni 假官方辨識課', url: '#' },
-    secondaryCta: { label: '用 ScamAdviser 驗證官方網址', url: '#' }
+    prescription: '假官方辨識特訓（含標本辨識 + 查驗指南）',
+    prescriptionDesc: '你看到制服就自動點頭，這輩子大概要少看公民課、多逛 ScamAdviser 的詐騙案例庫——那裡面的假警察、假銀行都有標本給你認臉。每次收到「官方」通知前先上去查一下，藥效 5 分鐘內生效。下方「重新實習」等你來證明不再輕易被制服收買。',
+    primaryCta: { label: '前往 ScamAdviser 逛假官方案例庫', url: SCAM_ADV_URL }
   },
   {
     id: 'chaos', title: '混沌中立者', typeShort: '感性×衝動×懷疑×獨立', rank: '謎之醫師', rankColor: 'text-[#805AD5]',
@@ -182,10 +178,9 @@ const PERSONALITIES = [
     stampClass: 'border-[#805AD5] text-[#805AD5]', stampText: '特殊\n體質',
     remark: '你的選項完全無法預測。詐騙集團不知怎麼對付你，你自己也不知道。有時候識破詐騙，純粹是因為你懶得點連結而已。',
     weaknesses: ['連你自己也不知道', '運氣用完的那一天', '衝動期的致命一點'],
-    prescription: 'Scam Uni 長期體質追蹤 + ScamAdviser 定期體檢',
-    prescriptionDesc: '你的模式連你自己都不知道，交給演算法幫你建檔。訂閱 Scam University 每月隨機測驗建立人格資料，搭配 ScamAdviser 做每週網址 / 電話體檢。',
-    primaryCta: { label: '開始 Scam Uni 體質追蹤', url: '#' },
-    secondaryCta: { label: '做 ScamAdviser 快速體檢', url: '#' }
+    prescription: '長期隨機體檢（請做好被驚喜的心理準備）',
+    prescriptionDesc: '你的選項連你自己都無法預測，這種體質極稀有。建議每週到 ScamAdviser 做隨機體檢（查幾個你覺得可疑的網址或電話），累積資料讓演算法幫你建檔；附贈外掛當作潛意識副駕駛。下方可以再測一次，反正你也猜不到下次會被診斷成什麼。',
+    primaryCta: { label: '做 ScamAdviser 隨機體檢（網址 / 電話）', url: SCAM_ADV_URL }
   }
 ];
 
@@ -606,10 +601,12 @@ function Game({
         <div className="flex flex-col gap-[20px] h-full">
           <section className="bg-[#4FD1C5] border-[4px] border-[#2C3E50] rounded-[32px] p-6 text-white shadow-[8px_8px_0_#285E61]">
             <span className="text-[12px] uppercase tracking-[2px] font-black mb-2 block text-white/90">當值醫師</span>
-            <div className="text-[24px] font-black">{doctorName}</div>
-            <div className="inline-block bg-[#234E52] px-3 py-1.5 rounded-lg text-[14px] mt-2 font-bold text-white flex items-center gap-1 w-max">
-               {React.createElement(INSTINCT_MAP[instinct as Instinct].icon, { className: "w-4 h-4" })}
-               傾向: {INSTINCT_MAP[instinct as Instinct].label}
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="text-[24px] font-black">{doctorName}</div>
+              <div className="bg-[#234E52] px-3 py-1.5 rounded-lg text-[13px] font-bold text-white flex items-center gap-1 shrink-0">
+                 {React.createElement(INSTINCT_MAP[instinct as Instinct].icon, { className: "w-4 h-4" })}
+                 傾向: {INSTINCT_MAP[instinct as Instinct].label}
+              </div>
             </div>
           </section>
 
@@ -774,16 +771,16 @@ function DeathScreen({ doctorName, onAccept }: { doctorName: string; onAccept: (
         <div className="bg-[#FFF5F5] border-[3px] border-[#E53E3E] rounded-[16px] p-4 mb-5 text-left">
           <div className="text-xs font-black text-[#E53E3E] uppercase tracking-widest mb-1">復活建議</div>
           <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">
-            前往 <b>Scam University</b> 完成補修課程，取得「臨時行醫執照」後即可重返門診。
+            前往 <b>ScamAdviser</b> 翻閱最新詐騙案例庫，認真反省犯案現場後，即可取得「臨時行醫執照」重返門診。
           </p>
         </div>
         <div className="flex flex-col gap-3">
           <a
-            href="#"
+            href={SCAM_ADV_URL}
             target="_blank" rel="noopener noreferrer"
             className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
           >
-            <ShieldCheck className="w-5 h-5" /> 前往 Scam Uni 取得復活執照
+            <ShieldCheck className="w-5 h-5" /> 前往 ScamAdviser 查犯罪現場
             <ExternalLink className="w-4 h-4" />
           </a>
           <button
@@ -996,6 +993,7 @@ function Prescription({ personality, userName, onClose }: any) {
               <span>{personality.primaryCta.label}</span>
               <ExternalLink className="w-4 h-4" />
             </a>
+            {personality.secondaryCta && (
             <a
               href={personality.secondaryCta.url} target="_blank" rel="noopener noreferrer"
               className="w-full bg-white text-[#2C3E50] border-[3px] border-[#2C3E50] font-black text-sm py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
@@ -1004,6 +1002,7 @@ function Prescription({ personality, userName, onClose }: any) {
               <span>{personality.secondaryCta.label}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
+            )}
           </div>
 
           <div className="flex justify-between items-end border-t-2 border-dashed border-[#CBD5E0] pt-3 mt-1 text-[10px] text-[#A0AEC0] font-mono uppercase tracking-widest">
@@ -1214,7 +1213,7 @@ function MedBag({ personality, med, userName }: { personality: any; med: MedData
           </div>
           <div className="flex">
             <span className="font-black w-[90px] shrink-0" style={{ color: MED_GREEN }}>線上查詢</span>
-            <span>scamadviser.com ・ Scam University 線上學程</span>
+            <span>scamadviser.com ・ 全球最大反詐資料庫</span>
           </div>
           <div className="flex">
             <span className="font-black w-[90px] shrink-0" style={{ color: MED_GREEN }}>營業時間</span>
@@ -1317,7 +1316,7 @@ function MedBagModal({ personality, med, userName, onClose }: any) {
         <button
           onClick={onClose}
           aria-label="關閉"
-          className="absolute -top-2 -right-2 z-10 w-10 h-10 bg-white border-[3px] border-[#2C3E50] rounded-full flex items-center justify-center shadow-[3px_3px_0_#2C3E50] hover:-translate-y-0.5 transition-transform"
+          className="absolute top-6 right-6 z-10 w-11 h-11 bg-white border-[3px] border-[#2C3E50] rounded-full flex items-center justify-center shadow-[3px_3px_0_#2C3E50] hover:-translate-y-0.5 transition-transform"
         >
           <X className="w-5 h-5 text-[#2C3E50]" />
         </button>
