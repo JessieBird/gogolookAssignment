@@ -204,6 +204,42 @@ type MedData = {
   externalNote: string;
 };
 
+// 「自我認知對照」：使用者宣告的直覺 vs 實際被診斷的人格，製造反差 / 自嘲哏
+const SELF_AWARENESS: Record<Instinct, Record<string, string>> = {
+  investigate: {
+    analyst: '自我認知 100% 準確——你以為自己是查證派，診斷也證實了。你阿嬤應該很驕傲（雖然也很煩）。',
+    guardian: '你以為自己會馬上查證？知道跟做到之間，差了 5 通詐騙電話的距離。',
+    expert: '你宣稱會查證，但你的選項顯示——懂很多，手卻慢了一步。',
+    hunter: '你說你會查證，結果診斷你是靠直覺吃飯的。查證太慢，你心裡的急性子等不了。',
+    believer: '你以為自己會查證，但其實你只信「官方蓋章」過的查證。',
+    chaos: '你宣稱會查證，結果選項毫無規律。你可能真的會查證，也可能是心情看看。',
+  },
+  ask: {
+    believer: '自我認知精準——你相信群體的智慧，雖然群體也可能整群是假的。',
+    analyst: '你以為會問人，結果是單兵作戰的類型——比你宣告的更冷靜獨立。',
+    guardian: '你宣稱會問人，可惜詐騙集團給你看的「朋友」也是假的。',
+    expert: '「問人」是你的說法，下意識卻想自己證明自己懂。',
+    hunter: '你想問人，實際上最後還是自己靠第六感決定。',
+    chaos: '你宣稱會問人，看你答案大概連要問誰都會看心情挑。',
+  },
+  intuition: {
+    hunter: '100% 自我認知——你就是靠直覺吃飯的那掛。準確率不穩但氣場強大。',
+    analyst: '你以為自己憑感覺？你的選擇其實極度理性——可能你的直覺就是叫你查證。',
+    guardian: '你的直覺告訴你：相信別人。這在別的事上 OK，在防詐上是災難。',
+    expert: '你宣稱憑感覺，其實你懂的比你承認的多，只是懶得動。',
+    believer: '你的「感覺」比較像是「看誰說的」——權威感就是你的直覺。',
+    chaos: '你說你憑感覺，結果你的感覺每題都不一樣。這體質極稀有。',
+  },
+  action: {
+    guardian: '自我認知準到可怕——你真的是手比腦快的類型。詐騙集團統計學最愛你這款。',
+    analyst: '你以為自己是先行動派？你的選項顯示你其實一直在觀望。嘴硬派。',
+    expert: '你宣稱先行動再想，但你每題都在心裡算了 3 秒。誠實點吧。',
+    hunter: '你說先行動，其實行動前你的直覺已經先幫你判斷過了。',
+    believer: '你說先行動，但前提是對方要有官方蓋章。你沒你想的那麼衝動。',
+    chaos: '你說先行動，結果每次行動都像亂數產生器。或許這就是你的天賦。',
+  },
+};
+
 const MED_BY_ID: Record<string, MedData> = {
   analyst: {
     name: '過度冷靜錠',
@@ -354,7 +390,7 @@ export default function App() {
              />
            )}
            {step === 'result' && (
-             <Result key="result" dims={dims} userName={doctorName} instinctLabel={INSTINCT_MAP[instinct].label} onRestart={restart} />
+             <Result key="result" dims={dims} userName={doctorName} instinct={instinct} instinctLabel={INSTINCT_MAP[instinct].label} onRestart={restart} />
            )}
         </AnimatePresence>
       </div>
@@ -518,10 +554,20 @@ function Game({
       className="flex flex-col w-full max-w-5xl mx-auto gap-[20px]"
     >
       <header className="flex flex-wrap justify-between items-center gap-3 bg-white px-6 md:px-8 py-4 rounded-[24px] shadow-[0_8px_0_#CBD5E0] border-[3px] border-[#2C3E50]">
-        <div className="flex items-center gap-[15px]">
-          <div className="w-5 h-5 bg-[#FF5252] rounded-full shadow-[0_0_15px_#FF5252] animate-pulse"></div>
-          <div className="text-[18px] md:text-[24px] font-black uppercase tracking-[1px] text-[#2C3E50] flex items-center gap-2">
-            人間清醒醫院 <span className="text-[#FF5252]">門診區</span>
+        <div className="flex items-center gap-[15px] flex-wrap">
+          <div className="flex items-center gap-[10px]">
+            <div className="w-5 h-5 bg-[#FF5252] rounded-full shadow-[0_0_15px_#FF5252] animate-pulse"></div>
+            <div className="text-[18px] md:text-[22px] font-black uppercase tracking-[1px] text-[#2C3E50] flex items-center gap-2">
+              人間清醒醫院 <span className="text-[#FF5252]">門診區</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 bg-[#4FD1C5] border-[2px] border-[#2C3E50] rounded-full pl-3 pr-2 py-1 shadow-[2px_2px_0_#285E61]">
+            <Stethoscope className="w-4 h-4 text-white" />
+            <span className="font-black text-sm text-white whitespace-nowrap">{doctorName}</span>
+            <span className="bg-[#234E52] text-white text-[11px] px-2 py-0.5 rounded-full font-bold flex items-center gap-1 whitespace-nowrap">
+              {React.createElement(INSTINCT_MAP[instinct as Instinct].icon, { className: "w-3 h-3" })}
+              {INSTINCT_MAP[instinct as Instinct].label}
+            </span>
           </div>
         </div>
         <div className="flex items-center gap-3 md:gap-4">
@@ -599,28 +645,7 @@ function Game({
         </section>
 
         <div className="flex flex-col gap-[20px] h-full">
-          <section className="bg-[#4FD1C5] border-[4px] border-[#2C3E50] rounded-[32px] p-6 text-white shadow-[8px_8px_0_#285E61]">
-            <span className="text-[12px] uppercase tracking-[2px] font-black mb-2 block text-white/90">當值醫師</span>
-            <div className="flex items-center gap-3 flex-wrap">
-              <div className="text-[24px] font-black">{doctorName}</div>
-              <div className="bg-[#234E52] px-3 py-1.5 rounded-lg text-[13px] font-bold text-white flex items-center gap-1 shrink-0">
-                 {React.createElement(INSTINCT_MAP[instinct as Instinct].icon, { className: "w-4 h-4" })}
-                 傾向: {INSTINCT_MAP[instinct as Instinct].label}
-              </div>
-            </div>
-          </section>
-
-          {isSevere && (
-            <ConsultButton
-              consulted={consulted}
-              canConsult={canConsult}
-              xp={xp}
-              cost={consultCost}
-              onClick={handleConsult}
-            />
-          )}
-
-          <section className="bg-white border-[4px] border-[#2C3E50] rounded-[32px] p-6 flex flex-col gap-4 shadow-[8px_8px_0_#CBD5E0] h-full">
+          <section className="bg-white border-[4px] border-[#2C3E50] rounded-[32px] p-6 flex flex-col gap-4 shadow-[8px_8px_0_#CBD5E0]">
             <div className="text-[20px] font-black text-[#2C3E50]">👨‍⚕️ 你的下一步診斷行動是...</div>
             <div className="grid gap-[16px]">
               {caseData.options.map((opt: CaseOption, i: number) => {
@@ -647,6 +672,16 @@ function Game({
               })}
             </div>
           </section>
+
+          {isSevere && (
+            <ConsultButton
+              consulted={consulted}
+              canConsult={canConsult}
+              xp={xp}
+              cost={consultCost}
+              onClick={handleConsult}
+            />
+          )}
         </div>
       </main>
 
@@ -795,7 +830,7 @@ function DeathScreen({ doctorName, onAccept }: { doctorName: string; onAccept: (
   );
 }
 
-function Result({ dims, userName, instinctLabel, onRestart }: any) {
+function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
   const total = dims.caution + dims.rational + dims.skeptic + dims.independent;
   const cp=dims.caution, rp=dims.rational, sp=dims.skeptic, ip=dims.independent;
 
@@ -878,6 +913,22 @@ function Result({ dims, userName, instinctLabel, onRestart }: any) {
               <div className="text-xs font-black text-[#4A5568] mb-1">臨床備註</div>
               <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">{p.remark}</p>
            </div>
+        </div>
+
+        <div className="bg-[#FFFBEB] border-[3px] border-[#2C3E50] rounded-[20px] p-5 mb-6 shadow-[4px_4px_0_#D69E2E]">
+          <div className="flex items-center gap-1.5 text-[10px] font-black text-[#975A16] uppercase tracking-widest mb-3">
+            <Sparkles className="w-4 h-4" /> 自我認知對照 · Self-Awareness Check
+          </div>
+          <div className="flex flex-wrap items-center gap-2 text-xs font-black mb-3">
+            <span className="text-[#A0AEC0]">你宣稱:</span>
+            <span className="bg-white border-[2px] border-[#2C3E50] text-[#2C3E50] px-2 py-0.5 rounded-full">{instinctLabel}</span>
+            <span className="text-[#A0AEC0]">→</span>
+            <span className="text-[#A0AEC0]">診斷結果:</span>
+            <span className={`bg-white border-[2px] border-[#2C3E50] px-2 py-0.5 rounded-full ${p.rankColor}`}>{p.title}</span>
+          </div>
+          <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">
+            {SELF_AWARENESS[instinct as Instinct]?.[p.id] ?? '你的選擇無法歸類，本院醫師也無從評論，祝你好運。'}
+          </p>
         </div>
 
         <div className="flex flex-col gap-3 mb-2">
@@ -1039,7 +1090,8 @@ function MedBag({ personality, med, userName }: { personality: any; med: MedData
     <div
       className="bg-white shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
       style={{
-        width: '540px',
+        width: '100%',
+        maxWidth: '540px',
         fontFamily: '"PMingLiU", "新細明體", "Noto Serif TC", "Songti TC", "Microsoft JhengHei", serif',
         color: '#111',
       }}
@@ -1080,7 +1132,7 @@ function MedBag({ personality, med, userName }: { personality: any; med: MedData
 
         {/* Name row */}
         <div
-          className="flex items-center px-4 py-2 text-[13px] border-b-[2px]"
+          className="flex flex-wrap items-center gap-y-1 px-4 py-2 text-[13px] border-b-[2px]"
           style={{ borderColor: MED_GREEN, background: '#F9F9F4' }}
         >
           <span className="font-black mr-2" style={{ color: MED_GREEN }}>姓名</span>
@@ -1094,7 +1146,7 @@ function MedBag({ personality, med, userName }: { personality: any; med: MedData
 
         {/* Diagnosis strip */}
         <div
-          className="flex items-center px-4 py-2 text-[12px] border-b-[2px]"
+          className="flex flex-wrap items-center gap-y-1 px-4 py-2 text-[12px] border-b-[2px]"
           style={{ borderColor: MED_GREEN }}
         >
           <span className="font-black mr-2" style={{ color: MED_GREEN }}>診斷 Dx</span>
@@ -1186,7 +1238,7 @@ function MedBag({ personality, med, userName }: { personality: any; med: MedData
 
         {/* Pharmacist / date row */}
         <div
-          className="flex items-center px-4 py-2 text-[12px] border-b-[2px]"
+          className="flex flex-wrap items-center gap-y-1 px-4 py-2 text-[12px] border-b-[2px]"
           style={{ borderColor: MED_GREEN, background: '#F9F9F4' }}
         >
           <span className="font-black mr-2" style={{ color: MED_GREEN }}>調劑藥師</span>
@@ -1258,7 +1310,13 @@ function MedBagModal({ personality, med, userName, onClose }: any) {
   const renderPng = async () => {
     if (!medBagRef.current) return null;
     const { toPng } = await import('html-to-image');
-    return toPng(medBagRef.current, { pixelRatio: 2, cacheBust: true });
+    // 強制 PNG 以 540px 寬度輸出，不論手機/桌面螢幕寬度，確保圖檔品質一致
+    return toPng(medBagRef.current, {
+      pixelRatio: 2,
+      cacheBust: true,
+      width: 540,
+      style: { width: '540px', maxWidth: 'none' },
+    });
   };
 
   const handleDownload = async () => {
