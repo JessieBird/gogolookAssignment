@@ -123,7 +123,7 @@ const SCAM_ADV_URL = 'https://www.scamadviser.com';
 
 const PERSONALITIES = [
   {
-    id: 'analyst', title: '冷血分析師', typeShort: '理性×懷疑×獨立', rank: '頂尖主任醫師', rankColor: 'text-[#38A169]',
+    id: 'analyst', title: '冷血分析師', typeShort: '理性×懷疑×獨立', rank: '防詐免疫 VIP', rankColor: 'text-[#38A169]',
     v1: 'S+', v1c: 'text-[#38A169]', v2: 'A', v2c: 'text-[#38A169]', v3: '鐵甲型', v3c: 'text-[#38A169]',
     stampClass: 'border-[#38A169] text-[#38A169]', stampText: '免疫\n出院',
     remark: '每封可疑郵件都要查網域，每通電話都要先掛掉再回撥。家人覺得你很煩，詐騙集團覺得你很無聊，但你的帳戶從來沒少過任何一分錢。',
@@ -133,7 +133,7 @@ const PERSONALITIES = [
     primaryCta: { label: '前往 ScamAdviser 查看最新詐騙案例', url: SCAM_ADV_URL }
   },
   {
-    id: 'guardian', title: '善良受難者', typeShort: '感性×衝動×信任×從眾', rank: '可憐實習生', rankColor: 'text-[#DD6B20]',
+    id: 'guardian', title: '善良受難者', typeShort: '感性×衝動×信任×從眾', rank: '急救常客', rankColor: 'text-[#DD6B20]',
     v1: 'C-', v1c: 'text-[#DD6B20]', v2: 'D', v2c: 'text-[#E53E3E]', v3: '高危體質', v3c: 'text-[#DD6B20]',
     stampClass: 'border-[#DD6B20] text-[#DD6B20]', stampText: '需要\n住院',
     remark: '你不是笨，你只是太好了。看到有限時特價手會抖，看到人落難就想幫。詐騙集團最愛你這種人。建議每次行動前先深呼吸三秒。',
@@ -143,7 +143,7 @@ const PERSONALITIES = [
     primaryCta: { label: '前往 ScamAdviser 翻閱詐騙案例庫', url: SCAM_ADV_URL }
   },
   {
-    id: 'expert', title: '嘴砲專家', typeShort: '理性×衝動×懷疑×從眾', rank: '資深主治醫師', rankColor: 'text-[#2B6CB0]',
+    id: 'expert', title: '嘴砲專家', typeShort: '理性×衝動×懷疑×從眾', rank: '觀察病例', rankColor: 'text-[#2B6CB0]',
     v1: 'B', v1c: 'text-[#2B6CB0]', v2: 'A-', v2c: 'text-[#2B6CB0]', v3: '知行落差型', v3c: 'text-[#2B6CB0]',
     stampClass: 'border-[#2B6CB0] text-[#2B6CB0]', stampText: '需\n觀察',
     remark: '你知道所有詐騙手法，但真的遇到的時候，你還是會猶豫三秒然後點下去。懂很多但執行力是零，你的腳正踩在知識與行動的鴻溝上。',
@@ -153,7 +153,7 @@ const PERSONALITIES = [
     primaryCta: { label: '前往 ScamAdviser 看最新詐騙案例', url: SCAM_ADV_URL }
   },
   {
-    id: 'hunter', title: '直覺獵人', typeShort: '感性×謹慎×信任×獨立', rank: '急診總醫師', rankColor: 'text-[#805AD5]',
+    id: 'hunter', title: '直覺獵人', typeShort: '感性×謹慎×信任×獨立', rank: '急診室熟面孔', rankColor: 'text-[#805AD5]',
     v1: 'B+', v1c: 'text-[#805AD5]', v2: 'C', v2c: 'text-[#DD6B20]', v3: '不穩定型', v3c: 'text-[#805AD5]',
     stampClass: 'border-[#805AD5] text-[#805AD5]', stampText: '觀察\n中',
     remark: '靠感覺行動，有時候比任何人都早發現不對勁，說不出哪裡怪就是怪。但有時候又被騙得莫名其妙，這就是你的直覺雙刃劍。',
@@ -163,7 +163,7 @@ const PERSONALITIES = [
     primaryCta: { label: '用 ScamAdviser 檢查網址 / 電話', url: SCAM_ADV_URL }
   },
   {
-    id: 'believer', title: '制度信徒', typeShort: '理性×謹慎×信任×從眾', rank: '住院醫師', rankColor: 'text-[#E53E3E]',
+    id: 'believer', title: '制度信徒', typeShort: '理性×謹慎×信任×從眾', rank: '慢性信任症病友', rankColor: 'text-[#E53E3E]',
     v1: 'B-', v1c: 'text-[#E53E3E]', v2: 'B+', v2c: 'text-[#2B6CB0]', v3: '弱點明確型', v3c: 'text-[#E53E3E]',
     stampClass: 'border-[#E53E3E] text-[#E53E3E]', stampText: '需\n補修',
     remark: '相信官方、相信程序。這讓你在一般情況下非常可靠，但也正因如此，最容易被「假官方」騙。只要穿制服你就信了。',
@@ -173,7 +173,7 @@ const PERSONALITIES = [
     primaryCta: { label: '前往 ScamAdviser 逛假官方案例庫', url: SCAM_ADV_URL }
   },
   {
-    id: 'chaos', title: '混沌中立者', typeShort: '感性×衝動×懷疑×獨立', rank: '謎之醫師', rankColor: 'text-[#805AD5]',
+    id: 'chaos', title: '混沌中立者', typeShort: '感性×衝動×懷疑×獨立', rank: '謎之病例', rankColor: 'text-[#805AD5]',
     v1: 'C+', v1c: 'text-[#805AD5]', v2: 'B-', v2c: 'text-[#805AD5]', v3: '謎型', v3c: 'text-[#805AD5]',
     stampClass: 'border-[#805AD5] text-[#805AD5]', stampText: '特殊\n體質',
     remark: '你的選項完全無法預測。詐騙集團不知怎麼對付你，你自己也不知道。有時候識破詐騙，純粹是因為你懶得點連結而已。',
@@ -742,7 +742,7 @@ function Game({
                 <div className="w-8 h-8 bg-[#D69E2E] rounded-full border-[2px] border-[#2C3E50] flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xs font-black text-[#975A16] uppercase tracking-widest">ScamAdviser 會診報告</span>
+                <span className="text-xs font-black text-[#975A16] uppercase tracking-widest">ScamAdviser 給你的提示</span>
               </div>
               <p className="text-sm font-bold text-[#4A5568] leading-relaxed">{caseData.hint}</p>
             </motion.div>
@@ -827,8 +827,8 @@ function ConsultButton({ consulted, canConsult, xp, cost, onClick }: any) {
   if (consulted) {
     return (
       <div className="bg-[#FFFBEB] border-[3px] border-[#D69E2E] rounded-[24px] p-4 text-center shadow-[4px_4px_0_#D69E2E]">
-        <div className="text-xs font-black text-[#975A16] uppercase tracking-widest mb-1">已完成會診</div>
-        <div className="text-sm font-black text-[#2C3E50]">ScamAdviser 已回報分析結果</div>
+        <div className="text-xs font-black text-[#975A16] uppercase tracking-widest mb-1">已獲得 ScamAdviser 協助</div>
+        <div className="text-sm font-black text-[#2C3E50]">提示已顯示在案例線索中</div>
       </div>
     );
   }
@@ -844,7 +844,7 @@ function ConsultButton({ consulted, canConsult, xp, cost, onClick }: any) {
     >
       <div className="flex items-center gap-2">
         <Search className="w-5 h-5" />
-        <span>呼叫 ScamAdviser 會診</span>
+        <span>使用 ScamAdviser 協助你度過難關</span>
       </div>
       <div className="text-xs font-bold opacity-90">
         {canConsult ? `消耗 ${cost} XP（剩餘 ${xp}）` : `需 ${cost} XP（目前 ${xp}）`}
@@ -940,15 +940,18 @@ function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
   const cp=dims.caution, rp=dims.rational, sp=dims.skeptic, ip=dims.independent;
 
   let p;
-  if (total >= 28) p = PERSONALITIES[0];
-  else if (sp >= 6 && rp >= 6) p = PERSONALITIES[0];
-  else if (cp <= 3 && sp <= 3 && rp <= 3) p = PERSONALITIES[1];
-  else if (rp >= 7 && sp >= 5 && cp <= 5) p = PERSONALITIES[2];
-  else if (ip >= 7 && cp >= 5 && rp <= 5) p = PERSONALITIES[3];
-  else if (rp >= 6 && cp >= 6 && sp <= 4) p = PERSONALITIES[4];
+  // 分析師最高門檻（接近滿分 34 的 top 玩家）
+  if (total >= 32) p = PERSONALITIES[0];
+  // 具體人格優先判定
+  else if (cp <= 3 && sp <= 3 && rp <= 3) p = PERSONALITIES[1]; // guardian
+  else if (ip >= 7 && cp >= 5 && rp <= 5) p = PERSONALITIES[3]; // hunter
+  else if (rp >= 6 && sp >= 5 && cp <= 5) p = PERSONALITIES[2]; // expert
+  else if (rp >= 6 && cp >= 6 && sp <= 5) p = PERSONALITIES[4]; // believer
+  // 分析師備用：不符具體 pattern 但理性 + 懷疑都極高
+  else if (sp >= 7 && rp >= 7) p = PERSONALITIES[0];
+  // 混沌判定（4 維差異小 或 其餘都不匹配）
   else if (Math.max(cp,rp,sp,ip) - Math.min(cp,rp,sp,ip) <= 3) p = PERSONALITIES[5];
-  else if (total >= 20) p = PERSONALITIES[0];
-  else p = PERSONALITIES[1];
+  else p = PERSONALITIES[5]; // fallback 一律到混沌中立者
 
   // Demo override: 網址加 ?p=<id> 可直接強制該人格 (供 demo / 截圖使用)
   if (typeof window !== 'undefined') {
