@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Activity, Stethoscope, ArrowRight, Search, Users, Zap, MousePointerClick, ChevronRight, Share2, Sparkles, Pill, X, ExternalLink, AlertTriangle, Heart, ShieldAlert, Skull, ShieldCheck } from 'lucide-react';
 
@@ -62,7 +62,7 @@ const CASES: Case[] = [
     options: [
       { text: '「請她直接退群，這種東西一看就知道是詐騙。」', dims: {caution:2,rational:1,skeptic:2,independent:2} },
       { text: '「建議她先觀望，看群裡的人到底有沒有真的在賺錢，不要急著下決定。」', dims: {caution:1,rational:1,skeptic:1,independent:0} },
-      { text: '「告訴她投個一兩千塊測試看看，小錢無所謂當作買經驗。」', dims: {caution:0,rational:0,skeptic:0,independent:1} },
+      { text: '「告訴她投個一兩千塊測試看看，小錢無所謂當作買經驗。」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
       { text: '「建議她去搜尋這個群組有沒有被爆料或被警政署標記，再決定要不要留。」', dims: {caution:1,rational:2,skeptic:2,independent:1} }
     ]
   },
@@ -76,7 +76,7 @@ const CASES: Case[] = [
       { id: 'e3', label: '寄件人號碼', content: '來自 +886 或境外號碼，非常奇怪。' }
     ],
     options: [
-      { text: '「請他先點擊看看，既然有在等包裹，確認一下也無妨。」', dims: {caution:0,rational:0,skeptic:0,independent:1} },
+      { text: '「請他先點擊看看，既然有在等包裹，確認一下也無妨。」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
       { text: '「嚴禁他點連結！請他直接去黑貓官網用當初的單號查詢。」', dims: {caution:2,rational:2,skeptic:2,independent:2} },
       { text: '「看他不知所措，你幫他把簡訊轉傳給你其他同事問問看這是不是詐騙。」', dims: {caution:1,rational:1,skeptic:1,independent:0} },
       { text: '「感覺怪怪的，建議他直接刪掉，到時候如果真的有包裹物流士自然會再打來。」', dims: {caution:2,rational:0,skeptic:2,independent:2} }
@@ -400,7 +400,7 @@ export default function App() {
 
 function Home({ onStart }: { onStart: () => void }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95 }}
       className="p-8 flex flex-col items-center text-center space-y-6 bg-white border-[4px] border-[#2C3E50] rounded-[32px] shadow-[10px_10px_0_#A0AEC0] min-h-[500px] justify-center w-full max-w-md mx-auto text-[#2C3E50]"
     >
@@ -409,66 +409,165 @@ function Home({ onStart }: { onStart: () => void }) {
       </div>
       <h1 className="text-4xl font-black tracking-tight leading-tight">
         人間清醒醫院<br/>
-        <span className="text-[#FF5252] text-2xl font-black mt-2 block uppercase tracking-wider">防詐人格診斷</span>
+        <span className="text-[#FF5252] text-2xl font-black mt-2 block uppercase tracking-wider">反詐體質門診</span>
       </h1>
-      <p className="text-[#4A5568] font-bold text-lg">
-        病患爆滿中，急需有門診經驗的醫師支援。<br/>
-        5 個病患急訴情境，沒有標準答案，你的直覺選擇將揭示你的「防詐人格與段位」。
+      <p className="text-[#4A5568] font-bold text-lg leading-relaxed">
+        最近可疑訊息收到手軟嗎？<br/>
+        本院為您開辦「反詐體質健檢」，主治 Dr. 清醒<br/>
+        全程 5 題情境，完診頒發您的防詐人格證書 + 個人化處方箋。
       </p>
-      <button 
+      <button
         onClick={onStart}
         className="w-full bg-[#4FD1C5] text-white border-[3px] border-[#2C3E50] hover:bg-[#38B2AC] hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] font-black text-xl py-4 rounded-[20px] flex items-center justify-center gap-2 mt-8 transition-all"
       >
         <Stethoscope className="w-6 h-6" />
-        建立醫師憑證
+        前往掛號處
       </button>
     </motion.div>
   );
 }
 
 function Onboarding({ name, setName, instinct, setInstinct, onStart }: any) {
+  const dateStr = useMemo(() => {
+    const today = new Date();
+    const rocYear = today.getFullYear() - 1911;
+    return `${String(rocYear).padStart(3, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${String(today.getDate()).padStart(2, '0')}`;
+  }, []);
+  const pseudoId = 'A165165165';
+
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}
-      className="p-8 flex flex-col min-h-[600px] bg-white border-[4px] border-[#2C3E50] rounded-[32px] shadow-[10px_10px_0_#A0AEC0] w-full max-w-md mx-auto text-[#2C3E50]"
+      className="p-6 md:p-8 flex flex-col min-h-[600px] bg-white border-[4px] border-[#2C3E50] rounded-[32px] shadow-[10px_10px_0_#A0AEC0] w-full max-w-md mx-auto text-[#2C3E50]"
     >
-      <div className="flex items-center gap-2 mb-8 bg-[#F0F4F8] self-start px-4 py-2 border-[3px] border-[#2C3E50] rounded-full shadow-[4px_4px_0_#CBD5E0]">
+      <div className="flex items-center gap-2 mb-4 bg-[#F0F4F8] self-start px-4 py-2 border-[3px] border-[#2C3E50] rounded-full shadow-[4px_4px_0_#CBD5E0]">
         <div className="w-3 h-3 rounded-full bg-[#FF5252] animate-pulse"></div>
-        <span className="text-[#2C3E50] font-black text-sm uppercase tracking-widest">性格分析系統</span>
+        <span className="text-[#2C3E50] font-black text-sm uppercase tracking-widest">掛號櫃檯 · REGISTRATION</span>
       </div>
 
-      <h2 className="text-3xl font-black mb-6">建立醫師憑證</h2>
-      
-      <div className="space-y-6 flex-1">
+      <h2 className="text-2xl font-black mb-2">初診掛號單</h2>
+      <p className="text-sm font-bold text-[#718096] mb-5">請出示您的「全民防詐健康保險卡」</p>
+
+      {/* 健保卡 */}
+      <div
+        className="relative rounded-[18px] border-[3px] border-[#2C3E50] overflow-hidden shadow-[6px_6px_0_#2C3E50] mb-5"
+        style={{
+          background: 'linear-gradient(135deg, #E0F7FA 0%, #B2DFDB 48%, #A5D6C5 100%)',
+          fontFamily: '"PMingLiU", "新細明體", "Microsoft JhengHei", sans-serif',
+        }}
+      >
+        {/* 背景「手牽手」浮水印 */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden
+        >
+          <svg viewBox="0 0 100 100" className="w-[65%] h-auto" style={{ opacity: 0.1, color: '#1B4332' }}>
+            <g stroke="currentColor" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              {/* 左邊人 */}
+              <circle cx="30" cy="22" r="7" fill="currentColor" />
+              <line x1="30" y1="29" x2="30" y2="58" />
+              <line x1="30" y1="40" x2="17" y2="52" />
+              <line x1="30" y1="40" x2="50" y2="52" />
+              <line x1="30" y1="58" x2="23" y2="82" />
+              <line x1="30" y1="58" x2="37" y2="82" />
+              {/* 右邊人 */}
+              <circle cx="70" cy="22" r="7" fill="currentColor" />
+              <line x1="70" y1="29" x2="70" y2="58" />
+              <line x1="70" y1="40" x2="83" y2="52" />
+              <line x1="70" y1="40" x2="50" y2="52" />
+              <line x1="70" y1="58" x2="63" y2="82" />
+              <line x1="70" y1="58" x2="77" y2="82" />
+              {/* 手牽手交會點 */}
+              <circle cx="50" cy="52" r="2.5" fill="currentColor" stroke="none" />
+            </g>
+          </svg>
+        </div>
+
+        {/* Header row */}
+        <div className="relative flex items-center gap-2 px-3 pt-3 pb-2">
+          <div className="w-11 h-11 rounded-full bg-white border-[2px] border-[#1B4332] flex items-center justify-center shrink-0 shadow-sm">
+            <div className="text-[#1B4332] font-black text-xl leading-none">H</div>
+          </div>
+          <div className="leading-tight">
+            <div className="font-black text-[17px] text-[#1B4332] tracking-[2px]">全民防詐健康保險</div>
+            <div className="text-[9px] font-bold text-[#2D6A4F] tracking-[1.5px]">NATIONAL ANTI-SCAM INSURANCE</div>
+          </div>
+        </div>
+
+        {/* Body: ◀ 晶片 | 姓名+ID+日期 中央置中 | Avatar 右置中（同一水平線） */}
+        <div className="relative grid grid-cols-[74px_1fr_74px] gap-2 px-3 pt-1 pb-3 items-center">
+          {/* 左側：箭頭 + 晶片 */}
+          <div className="flex items-center gap-1.5">
+            <div className="w-0 h-0 border-y-[5px] border-y-transparent border-r-[7px] border-r-[#1B4332] shrink-0" />
+            <div
+              className="w-11 h-8 rounded-[3px] shrink-0"
+              style={{
+                background: 'linear-gradient(135deg, #F6E27A 0%, #D4AF37 45%, #B8860B 100%)',
+                boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
+              }}
+            >
+              <div className="w-full h-full grid grid-cols-3 grid-rows-3 gap-px p-0.5" style={{ opacity: 0.4 }}>
+                {Array.from({ length: 9 }).map((_, i) => (
+                  <div key={i} className="bg-[#8B6914]" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 姓名 + 身分證字號 + 初診日期（整組水平置中） */}
+          <div className="text-center min-w-0">
+            <div
+              className="font-black text-[#111] leading-none mb-2 truncate"
+              style={{ fontSize: name ? '28px' : '20px', letterSpacing: '4px' }}
+            >
+              {name || '（請輸入姓名）'}
+            </div>
+            <div className="font-mono text-[12px] text-[#1a1a1a]">{pseudoId}</div>
+            <div className="font-mono text-[11px] text-[#333] mt-0.5">初診 {dateStr}</div>
+          </div>
+
+          {/* Avatar 右側垂直置中 */}
+          <div className="w-[74px] h-[88px] bg-white rounded-[3px] border-[1.5px] border-[#1B4332] flex items-center justify-center shadow-sm">
+            <div className="text-[44px] leading-none">🤒</div>
+          </div>
+        </div>
+
+        {/* Card number */}
+        <div className="relative bg-white/20 px-3 py-1 border-t border-[#1B4332]/30">
+          <div className="font-mono text-[11px] text-[#1a1a1a] tracking-[2px]">0000 165 5678</div>
+        </div>
+      </div>
+
+      <div className="space-y-5 flex-1">
         <div>
-          <label className="block text-sm font-black text-[#2C3E50] mb-2 uppercase tracking-wide">你的名字 (會出現在診斷書上)</label>
-          <input 
-            type="text" 
-            className="w-full border-[3px] border-[#2C3E50] rounded-[20px] bg-[#F7FAFC] p-4 text-xl font-bold focus:border-[#4FD1C5] focus:outline-none transition-colors shadow-[0_4px_0_#CBD5E0]"
-            placeholder="請輸入名字..."
+          <label className="block text-xs font-black text-[#2C3E50] mb-2 uppercase tracking-wide">姓名 / PATIENT NAME</label>
+          <input
+            type="text"
+            className="w-full border-[3px] border-[#2C3E50] rounded-[16px] bg-[#F7FAFC] p-3 text-lg font-bold focus:border-[#4FD1C5] focus:outline-none transition-colors shadow-[0_3px_0_#CBD5E0]"
+            placeholder="例：王小明"
             value={name} onChange={(e) => setName(e.target.value)}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-black text-[#2C3E50] mb-3 uppercase tracking-wide">遇到詐騙時，你通常第一反應是？</label>
+          <label className="block text-xs font-black text-[#2C3E50] mb-3 uppercase tracking-wide">初診問卷 · 收到可疑訊息，您第一反應通常是？</label>
           <div className="grid grid-cols-2 gap-3">
             {(Object.keys(INSTINCT_MAP) as Instinct[]).map((s) => {
               const info = INSTINCT_MAP[s];
               const Icon = info.icon;
               const isActive = instinct === s;
               return (
-                <div 
+                <div
                   key={s} onClick={() => setInstinct(s)}
-                  className={`p-3 border-[3px] rounded-[20px] cursor-pointer flex flex-col gap-2 transition-all ${
-                    isActive ? 'border-[#2C3E50] bg-[#4FD1C5] text-white shadow-[0_4px_0_#2C3E50] transform -translate-y-[2px]' 
+                  className={`p-3 border-[3px] rounded-[18px] cursor-pointer flex flex-col gap-2 transition-all ${
+                    isActive ? 'border-[#2C3E50] bg-[#4FD1C5] text-white shadow-[0_4px_0_#2C3E50] transform -translate-y-[2px]'
                              : 'border-[#CBD5E0] bg-white text-[#2C3E50] hover:border-[#2C3E50] hover:shadow-[0_4px_0_#CBD5E0]'
                   }`}
                 >
-                  <Icon className="w-6 h-6 mb-1" />
+                  <Icon className="w-5 h-5 mb-1" />
                   <div>
-                    <h3 className="font-black text-base leading-tight">{info.label}</h3>
-                    <p className={`text-xs mt-1 font-bold ${isActive ? 'text-[#E6FFFA]' : 'text-[#718096]'}`}>{info.desc}</p>
+                    <h3 className="font-black text-sm leading-tight">{info.label}</h3>
+                    <p className={`text-[11px] mt-1 font-bold ${isActive ? 'text-[#E6FFFA]' : 'text-[#718096]'}`}>{info.desc}</p>
                   </div>
                 </div>
               )
@@ -477,12 +576,12 @@ function Onboarding({ name, setName, instinct, setInstinct, onStart }: any) {
         </div>
       </div>
 
-      <button 
+      <button
         onClick={onStart} disabled={!name}
-        className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black text-xl py-4 rounded-[20px] flex items-center justify-center gap-2 mt-8 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+        className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black text-lg py-3 rounded-[16px] flex items-center justify-center gap-2 mt-6 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none"
       >
-        開始測驗，診斷人格
-        <ArrowRight className="w-6 h-6" />
+        完成掛號，進入看診
+        <ArrowRight className="w-5 h-5" />
       </button>
     </motion.div>
   );
@@ -561,8 +660,14 @@ function Game({
               人間清醒醫院 <span className="text-[#FF5252]">門診區</span>
             </div>
           </div>
-          <div className="flex items-center gap-2 bg-[#4FD1C5] border-[2px] border-[#2C3E50] rounded-full pl-3 pr-2 py-1 shadow-[2px_2px_0_#285E61]">
-            <Stethoscope className="w-4 h-4 text-white" />
+          {/* 主治醫師 */}
+          <div className="flex items-center gap-1.5 bg-white border-[2px] border-[#2C3E50] rounded-full px-3 py-1 shadow-[2px_2px_0_#2C3E50]">
+            <Stethoscope className="w-3.5 h-3.5 text-[#4FD1C5]" />
+            <span className="text-[11px] md:text-xs font-black text-[#2C3E50] whitespace-nowrap">主治 · Dr. 清醒</span>
+          </div>
+          {/* 掛號病患 */}
+          <div className="flex items-center gap-2 bg-[#4FD1C5] border-[2px] border-[#2C3E50] rounded-full pl-2.5 pr-2 py-1 shadow-[2px_2px_0_#285E61]">
+            <span className="text-base leading-none">🤒</span>
             <span className="font-black text-sm text-white whitespace-nowrap">{doctorName}</span>
             <span className="bg-[#234E52] text-white text-[11px] px-2 py-0.5 rounded-full font-bold flex items-center gap-1 whitespace-nowrap">
               {React.createElement(INSTINCT_MAP[instinct as Instinct].icon, { className: "w-3 h-3" })}
@@ -605,7 +710,7 @@ function Game({
           </div>
 
           <div>
-            <div className="text-[20px] font-black mb-[10px] text-[#2C3E50]">🔎 患者帶來的情境資訊 (Evidence)</div>
+            <div className="text-[20px] font-black mb-[10px] text-[#2C3E50]">🩺 看看醫師怎麼說</div>
             <div className="flex flex-wrap gap-[12px]">
               {caseData.evidence.map((ev: any) => {
                 if (!openedChips[ev.id]) {
@@ -646,7 +751,7 @@ function Game({
 
         <div className="flex flex-col gap-[20px] h-full">
           <section className="bg-white border-[4px] border-[#2C3E50] rounded-[32px] p-6 flex flex-col gap-4 shadow-[8px_8px_0_#CBD5E0]">
-            <div className="text-[20px] font-black text-[#2C3E50]">👨‍⚕️ 你的下一步診斷行動是...</div>
+            <div className="text-[20px] font-black text-[#2C3E50]">🤔 如果是您，會建議怎麼做？</div>
             <div className="grid gap-[16px]">
               {caseData.options.map((opt: CaseOption, i: number) => {
                 const isEliminated = consulted && caseData.eliminatedOptionIndex === i;
@@ -797,16 +902,16 @@ function DeathScreen({ doctorName, onAccept }: { doctorName: string; onAccept: (
         <div className="w-20 h-20 bg-[#E53E3E] rounded-full border-[4px] border-[#2C3E50] mx-auto mb-4 flex items-center justify-center shadow-[0_0_20px_#FC8181]">
           <Skull className="w-10 h-10 text-white" />
         </div>
-        <div className="text-xs font-black text-[#E53E3E] uppercase tracking-[3px] mb-1">CODE BLUE</div>
-        <h2 className="text-2xl font-black text-[#2C3E50] mb-3">醫療委員會通知</h2>
+        <div className="text-xs font-black text-[#E53E3E] uppercase tracking-[3px] mb-1">CODE RED · 防詐警報</div>
+        <h2 className="text-2xl font-black text-[#2C3E50] mb-3">反詐觀察病房通知</h2>
         <p className="text-sm font-bold text-[#4A5568] leading-relaxed mb-6">
-          {doctorName} 醫師：你的病患連續陣亡，<br />
-          院方已暫時吊銷你的執照，進入調查程序。
+          {doctorName} 病患：您在本次健檢中已不幸「被詐騙」3 次，<br />
+          主治醫師 Dr. 清醒 建議您立即轉入反詐觀察病房留觀。
         </p>
         <div className="bg-[#FFF5F5] border-[3px] border-[#E53E3E] rounded-[16px] p-4 mb-5 text-left">
-          <div className="text-xs font-black text-[#E53E3E] uppercase tracking-widest mb-1">復活建議</div>
+          <div className="text-xs font-black text-[#E53E3E] uppercase tracking-widest mb-1">療養建議</div>
           <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">
-            前往 <b>ScamAdviser</b> 翻閱最新詐騙案例庫，認真反省犯案現場後，即可取得「臨時行醫執照」重返門診。
+            前往 <b>ScamAdviser</b> 翻閱最新詐騙案例庫，補強防詐知識後即可取得「出院許可證」，回到診間完成剩餘健檢。
           </p>
         </div>
         <div className="flex flex-col gap-3">
@@ -815,14 +920,14 @@ function DeathScreen({ doctorName, onAccept }: { doctorName: string; onAccept: (
             target="_blank" rel="noopener noreferrer"
             className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
           >
-            <ShieldCheck className="w-5 h-5" /> 前往 ScamAdviser 查犯罪現場
+            <ShieldCheck className="w-5 h-5" /> 前往 ScamAdviser 補課出院
             <ExternalLink className="w-4 h-4" />
           </a>
           <button
             onClick={onAccept}
             className="w-full bg-white text-[#4A5568] border-[3px] border-[#2C3E50] font-black text-sm py-2.5 rounded-[16px] hover:bg-[#EDF2F7] transition-colors"
           >
-            接受懲處，繼續完成剩餘病患
+            接受留觀，繼續完成剩餘健檢題
           </button>
         </div>
       </motion.div>
@@ -919,12 +1024,16 @@ function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
           <div className="flex items-center gap-1.5 text-[10px] font-black text-[#975A16] uppercase tracking-widest mb-3">
             <Sparkles className="w-4 h-4" /> 自我認知對照 · Self-Awareness Check
           </div>
-          <div className="flex flex-wrap items-center gap-2 text-xs font-black mb-3">
-            <span className="text-[#A0AEC0]">你宣稱:</span>
-            <span className="bg-white border-[2px] border-[#2C3E50] text-[#2C3E50] px-2 py-0.5 rounded-full">{instinctLabel}</span>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-black mb-3">
+            <div className="flex items-center gap-2">
+              <span className="text-[#A0AEC0]">你宣稱:</span>
+              <span className="bg-white border-[2px] border-[#2C3E50] text-[#2C3E50] px-2 py-0.5 rounded-full whitespace-nowrap">{instinctLabel}</span>
+            </div>
             <span className="text-[#A0AEC0]">→</span>
-            <span className="text-[#A0AEC0]">診斷結果:</span>
-            <span className={`bg-white border-[2px] border-[#2C3E50] px-2 py-0.5 rounded-full ${p.rankColor}`}>{p.title}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[#A0AEC0]">診斷結果:</span>
+              <span className={`bg-white border-[2px] border-[#2C3E50] px-2 py-0.5 rounded-full whitespace-nowrap ${p.rankColor}`}>{p.title}</span>
+            </div>
           </div>
           <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">
             {SELF_AWARENESS[instinct as Instinct]?.[p.id] ?? '你的選擇無法歸類，本院醫師也無從評論，祝你好運。'}
@@ -1038,11 +1147,11 @@ function Prescription({ personality, userName, onClose }: any) {
           <div className="flex flex-col gap-3 pt-1">
             <a
               href={personality.primaryCta.url} target="_blank" rel="noopener noreferrer"
-              className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black py-4 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
+              className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black py-3 px-4 rounded-[16px] flex items-center justify-center gap-2 leading-tight text-sm md:text-base text-center hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
             >
-              <Stethoscope className="w-5 h-5" />
+              <Stethoscope className="w-5 h-5 shrink-0" />
               <span>{personality.primaryCta.label}</span>
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4 shrink-0" />
             </a>
             {personality.secondaryCta && (
             <a
@@ -1090,8 +1199,7 @@ function MedBag({ personality, med, userName }: { personality: any; med: MedData
     <div
       className="bg-white shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
       style={{
-        width: '100%',
-        maxWidth: '540px',
+        width: '540px',
         fontFamily: '"PMingLiU", "新細明體", "Noto Serif TC", "Songti TC", "Microsoft JhengHei", serif',
         color: '#111',
       }}
@@ -1303,19 +1411,46 @@ function MedBagModal({ personality, med, userName, onClose }: any) {
   const medBagRef = useRef<HTMLDivElement>(null);
   const [downloading, setDownloading] = useState(false);
   const [sharing, setSharing] = useState(false);
+  const [scale, setScale] = useState(1);
+  const [bagHeight, setBagHeight] = useState<number | null>(null);
 
   const safeName = (userName || '無名醫師').replace(/[^\w\u4e00-\u9fa5]/g, '');
   const fileName = `人間清醒醫院-${safeName}-${personality.id}藥袋.png`;
 
+  // 根據視窗寬度計算 scale，讓藥袋完整呈現於手機螢幕
+  useEffect(() => {
+    const recalc = () => {
+      if (typeof window === 'undefined') return;
+      const available = Math.min(window.innerWidth - 48, 540); // -48 留 modal padding + close button 空間
+      setScale(Math.min(1, available / 540));
+    };
+    recalc();
+    window.addEventListener('resize', recalc);
+    return () => window.removeEventListener('resize', recalc);
+  }, []);
+
+  // 量藥袋原始（未縮放）高度以撐開外層容器
+  useEffect(() => {
+    if (medBagRef.current) {
+      setBagHeight(medBagRef.current.scrollHeight);
+    }
+  }, [personality]);
+
   const renderPng = async () => {
     if (!medBagRef.current) return null;
     const { toPng } = await import('html-to-image');
-    // 強制 PNG 以 540px 寬度輸出，不論手機/桌面螢幕寬度，確保圖檔品質一致
+    // PNG 輸出時重設 transform 為 scale(1)，保持圖檔維持 540px 全尺寸
+    // pixelRatio 調降為 1.5 讓檔案不至於過大（原本 2x 會產出 1080×~2600 的巨圖）
     return toPng(medBagRef.current, {
-      pixelRatio: 2,
+      pixelRatio: 1.5,
       cacheBust: true,
       width: 540,
-      style: { width: '540px', maxWidth: 'none' },
+      style: {
+        width: '540px',
+        maxWidth: 'none',
+        transform: 'scale(1)',
+        transformOrigin: 'top left',
+      },
     });
   };
 
@@ -1379,8 +1514,23 @@ function MedBagModal({ personality, med, userName, onClose }: any) {
           <X className="w-5 h-5 text-[#2C3E50]" />
         </button>
 
-        <div ref={medBagRef} className="rounded-[8px] overflow-hidden">
-          <MedBag personality={personality} med={med} userName={userName} />
+        <div
+          className="rounded-[8px] overflow-hidden mx-auto"
+          style={{
+            width: `${540 * scale}px`,
+            height: bagHeight ? `${bagHeight * scale}px` : undefined,
+          }}
+        >
+          <div
+            ref={medBagRef}
+            style={{
+              width: '540px',
+              transform: `scale(${scale})`,
+              transformOrigin: 'top left',
+            }}
+          >
+            <MedBag personality={personality} med={med} userName={userName} />
+          </div>
         </div>
 
         <div className="mt-4 flex flex-col sm:flex-row gap-3">
