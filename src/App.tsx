@@ -41,10 +41,10 @@ const CASES: Case[] = [
       { id: 'e3', label: '背景音分析', content: '警察的對講機聲音聽起來像重複播放的罐頭音效。' }
     ],
     options: [
-        { text: '「請病患立刻掛掉，直接用另一支手機打給弟弟確認人在哪。」', dims: {caution:2,rational:1,skeptic:2,independent:1} },
-        { text: '「請病患問對方『你現在在哪裡、旁邊有誰』，用只有真弟弟才知道的問題測試。」', dims: {caution:1,rational:2,skeptic:2,independent:1} },
-        { text: '「這攸關人命，請他趕快問對方帳號，先匯一筆過去救人再說！」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
-        { text: '「覺得聲音不太對，但還是先建議他打給媽媽或家裡長輩確認看看。」', dims: {caution:1,rational:1,skeptic:1,independent:0} }
+      { text: '「請病患立刻掛掉，直接用另一支手機打給弟弟確認人在哪。」', dims: { caution: 2, rational: 1, skeptic: 2, independent: 1 } },
+      { text: '「請病患問對方『你現在在哪裡、旁邊有誰』，用只有真弟弟才知道的問題測試。」', dims: { caution: 1, rational: 2, skeptic: 2, independent: 1 } },
+      { text: '「這攸關人命，請他趕快問對方帳號，先匯一筆過去救人再說！」', dims: { caution: 0, rational: 0, skeptic: 0, independent: 0 } },
+      { text: '「覺得聲音不太對，但還是先建議他打給媽媽或家裡長輩確認看看。」', dims: { caution: 1, rational: 1, skeptic: 1, independent: 0 } }
     ],
     difficulty: 'severe',
     hint: 'ScamAdviser 資料庫比對：AI 變聲詐騙 92% 伴隨「深夜時段 + 罐頭背景音 + 要求緊急匯款」三特徵。證據 e3（罐頭警察對講機）是本案決定性線索，優先採信。',
@@ -60,10 +60,10 @@ const CASES: Case[] = [
       { id: 'e3', label: '朋友說詞', content: '「老師報的牌週週翻倍，你信我準沒錯。」' }
     ],
     options: [
-      { text: '「請她直接退群，這種東西一看就知道是詐騙。」', dims: {caution:2,rational:1,skeptic:2,independent:2} },
-      { text: '「建議她先觀望，看群裡的人到底有沒有真的在賺錢，不要急著下決定。」', dims: {caution:1,rational:1,skeptic:1,independent:0} },
-      { text: '「告訴她投個一兩千塊測試看看，小錢無所謂當作買經驗。」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
-      { text: '「建議她去搜尋這個群組有沒有被爆料或被警政署標記，再決定要不要留。」', dims: {caution:1,rational:2,skeptic:2,independent:1} }
+      { text: '「請她直接退群，這種東西一看就知道是詐騙。」', dims: { caution: 2, rational: 1, skeptic: 2, independent: 2 } },
+      { text: '「建議她先觀望，看群裡的人到底有沒有真的在賺錢，不要急著下決定。」', dims: { caution: 1, rational: 1, skeptic: 1, independent: 0 } },
+      { text: '「告訴她投個一兩千塊測試看看，小錢無所謂當作買經驗。」', dims: { caution: 0, rational: 0, skeptic: 0, independent: 0 } },
+      { text: '「建議她去搜尋這個群組有沒有被爆料或被警政署標記，再決定要不要留。」', dims: { caution: 1, rational: 2, skeptic: 2, independent: 1 } }
     ]
   },
   {
@@ -76,10 +76,10 @@ const CASES: Case[] = [
       { id: 'e3', label: '寄件人號碼', content: '來自 +886 或境外號碼，非常奇怪。' }
     ],
     options: [
-      { text: '「請他先點擊看看，既然有在等包裹，確認一下也無妨。」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
-      { text: '「嚴禁他點連結！請他直接去黑貓官網用當初的單號查詢。」', dims: {caution:2,rational:2,skeptic:2,independent:2} },
-      { text: '「看他不知所措，你幫他把簡訊轉傳給你其他同事問問看這是不是詐騙。」', dims: {caution:1,rational:1,skeptic:1,independent:0} },
-      { text: '「感覺怪怪的，建議他直接刪掉，到時候如果真的有包裹物流士自然會再打來。」', dims: {caution:2,rational:0,skeptic:2,independent:2} }
+      { text: '「請他先點擊看看，既然有在等包裹，確認一下也無妨。」', dims: { caution: 0, rational: 0, skeptic: 0, independent: 0 } },
+      { text: '「嚴禁他點連結！請他直接去黑貓官網用當初的單號查詢。」', dims: { caution: 2, rational: 2, skeptic: 2, independent: 2 } },
+      { text: '「看他不知所措，你幫他把簡訊轉傳給你其他同事問問看這是不是詐騙。」', dims: { caution: 1, rational: 1, skeptic: 1, independent: 0 } },
+      { text: '「感覺怪怪的，建議他直接刪掉，到時候如果真的有包裹物流士自然會再打來。」', dims: { caution: 2, rational: 0, skeptic: 2, independent: 2 } }
     ]
   },
   {
@@ -92,10 +92,10 @@ const CASES: Case[] = [
       { id: 'e3', label: '匯款要求', content: '「設備保證金」需匯入一個個人帳戶，並非公司帳戶。' }
     ],
     options: [
-      { text: '「3000 元不多，請她先繳了再說，這種遠端工作機會難得。」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
-      { text: '「請她要求對方先簽合約、提供公司統編，確認一切合法後再談保證金。」', dims: {caution:2,rational:2,skeptic:1,independent:1} },
-      { text: '「建議她去 Dcard 和 PTT 搜尋這家公司的評價，看看有沒有被爆料過。」', dims: {caution:1,rational:2,skeptic:2,independent:1} },
-      { text: '「告訴她正規公司絕不會要求求職者先繳保證金，請她直接封鎖不回覆。」', dims: {caution:2,rational:1,skeptic:2,independent:2} }
+      { text: '「3000 元不多，請她先繳了再說，這種遠端工作機會難得。」', dims: { caution: 0, rational: 0, skeptic: 0, independent: 0 } },
+      { text: '「請她要求對方先簽合約、提供公司統編，確認一切合法後再談保證金。」', dims: { caution: 2, rational: 2, skeptic: 1, independent: 1 } },
+      { text: '「建議她去 Dcard 和 PTT 搜尋這家公司的評價，看看有沒有被爆料過。」', dims: { caution: 1, rational: 2, skeptic: 2, independent: 1 } },
+      { text: '「告訴她正規公司絕不會要求求職者先繳保證金，請她直接封鎖不回覆。」', dims: { caution: 2, rational: 1, skeptic: 2, independent: 2 } }
     ],
     difficulty: 'severe',
     hint: 'ScamAdviser 資料庫比對：要求求職者先繳「設備費 / 保證金」的職缺 97% 為詐騙；台灣《就業服務法》第 5 條亦明文禁止。匯款到個人帳戶（非公司統編帳戶）為決定性紅旗。',
@@ -111,10 +111,10 @@ const CASES: Case[] = [
       { id: 'e3', label: '留言分析', content: '5000 多則留言有很多罐頭訊息或假帳號特徵。' }
     ],
     options: [
-      { text: '「既然這麼多人捐了，網紅也有藍勾勾，應該是真的，請他放心捐。」', dims: {caution:0,rational:0,skeptic:0,independent:0} },
-      { text: '「建議他先去搜尋這個募款活動是否有新聞媒體報導或衛福部核准字號。」', dims: {caution:1,rational:2,skeptic:2,independent:1} },
-      { text: '「勸他如果不確定就什麼都別做，等看看政府或其他更可信的公益團體管道。」', dims: {caution:2,rational:1,skeptic:1,independent:1} },
-      { text: '「建議他直接私訊那個網紅本人或經紀公司，再次確認這個活動的合法性。」', dims: {caution:1,rational:1,skeptic:1,independent:2} }
+      { text: '「既然這麼多人捐了，網紅也有藍勾勾，應該是真的，請他放心捐。」', dims: { caution: 0, rational: 0, skeptic: 0, independent: 0 } },
+      { text: '「建議他先去搜尋這個募款活動是否有新聞媒體報導或衛福部核准字號。」', dims: { caution: 1, rational: 2, skeptic: 2, independent: 1 } },
+      { text: '「勸他如果不確定就什麼都別做，等看看政府或其他更可信的公益團體管道。」', dims: { caution: 2, rational: 1, skeptic: 1, independent: 1 } },
+      { text: '「建議他直接私訊那個網紅本人或經紀公司，再次確認這個活動的合法性。」', dims: { caution: 1, rational: 1, skeptic: 1, independent: 2 } }
     ]
   }
 ];
@@ -315,7 +315,7 @@ export default function App() {
   const [instinct, setInstinct] = useState<Instinct>('investigate');
 
   const [currentCaseIndex, setCurrentCaseIndex] = useState(0);
-  const [dims, setDims] = useState<Dimension>({caution: 0, rational: 0, skeptic: 0, independent: 0});
+  const [dims, setDims] = useState<Dimension>({ caution: 0, rational: 0, skeptic: 0, independent: 0 });
   const [hearts, setHearts] = useState(MAX_HEARTS);
   const [xp, setXp] = useState(0);
 
@@ -357,7 +357,7 @@ export default function App() {
     setStep('home');
     setDoctorName('');
     setCurrentCaseIndex(0);
-    setDims({caution: 0, rational: 0, skeptic: 0, independent: 0});
+    setDims({ caution: 0, rational: 0, skeptic: 0, independent: 0 });
     setHearts(MAX_HEARTS);
     setXp(0);
   };
@@ -366,32 +366,32 @@ export default function App() {
     <div className="min-h-screen font-sans flex flex-col items-center justify-center p-4 md:p-8">
       <div className="w-full relative">
         <AnimatePresence mode="wait">
-           {step === 'home' && <Home key="home" onStart={handleStartOnboarding} />}
-           {step === 'onboarding' && (
-             <Onboarding key="onboarding" name={doctorName} setName={setDoctorName} instinct={instinct} setInstinct={setInstinct} onStart={handleStartGame} />
-           )}
-           {step === 'game' && (
-             <Game
-               key="game"
-               caseData={CASES[currentCaseIndex]}
-               caseNumber={currentCaseIndex + 1}
-               totalCases={CASES.length}
-               doctorName={doctorName}
-               instinct={instinct}
-               hearts={hearts}
-               xp={xp}
-               maxHearts={MAX_HEARTS}
-               consultCost={CONSULT_COST}
-               xpPerDim={XP_PER_DIM}
-               onUpdateHearts={setHearts}
-               onSpendXp={spendXp}
-               onGainXp={(amount: number) => setXp(prev => prev + amount)}
-               onDiagnose={handleDiagnosis}
-             />
-           )}
-           {step === 'result' && (
-             <Result key="result" dims={dims} userName={doctorName} instinct={instinct} instinctLabel={INSTINCT_MAP[instinct].label} onRestart={restart} />
-           )}
+          {step === 'home' && <Home key="home" onStart={handleStartOnboarding} />}
+          {step === 'onboarding' && (
+            <Onboarding key="onboarding" name={doctorName} setName={setDoctorName} instinct={instinct} setInstinct={setInstinct} onStart={handleStartGame} />
+          )}
+          {step === 'game' && (
+            <Game
+              key="game"
+              caseData={CASES[currentCaseIndex]}
+              caseNumber={currentCaseIndex + 1}
+              totalCases={CASES.length}
+              doctorName={doctorName}
+              instinct={instinct}
+              hearts={hearts}
+              xp={xp}
+              maxHearts={MAX_HEARTS}
+              consultCost={CONSULT_COST}
+              xpPerDim={XP_PER_DIM}
+              onUpdateHearts={setHearts}
+              onSpendXp={spendXp}
+              onGainXp={(amount: number) => setXp(prev => prev + amount)}
+              onDiagnose={handleDiagnosis}
+            />
+          )}
+          {step === 'result' && (
+            <Result key="result" dims={dims} userName={doctorName} instinct={instinct} instinctLabel={INSTINCT_MAP[instinct].label} onRestart={restart} />
+          )}
         </AnimatePresence>
       </div>
     </div>
@@ -408,12 +408,12 @@ function Home({ onStart }: { onStart: () => void }) {
         <Activity className="w-10 h-10 text-white animate-pulse" />
       </div>
       <h1 className="text-4xl font-black tracking-tight leading-tight">
-        人間清醒醫院<br/>
+        人間清醒醫院<br />
         <span className="text-[#FF5252] text-2xl font-black mt-2 block uppercase tracking-wider">反詐體質門診</span>
       </h1>
       <p className="text-[#4A5568] font-bold text-lg leading-relaxed">
-        最近可疑訊息收到手軟嗎？<br/>
-        本院為您開辦「反詐體質健檢」，主治 Dr. 清醒<br/>
+        最近可疑訊息收到手軟嗎？<br />
+        本院為您開辦「反詐體質健檢」，主治 Dr. 清醒<br />
         全程 5 題情境，完診頒發您的防詐人格證書 + 個人化處方箋。
       </p>
       <button
@@ -559,10 +559,9 @@ function Onboarding({ name, setName, instinct, setInstinct, onStart }: any) {
               return (
                 <div
                   key={s} onClick={() => setInstinct(s)}
-                  className={`p-3 border-[3px] rounded-[18px] cursor-pointer flex flex-col gap-2 transition-all ${
-                    isActive ? 'border-[#2C3E50] bg-[#4FD1C5] text-white shadow-[0_4px_0_#2C3E50] transform -translate-y-[2px]'
-                             : 'border-[#CBD5E0] bg-white text-[#2C3E50] hover:border-[#2C3E50] hover:shadow-[0_4px_0_#CBD5E0]'
-                  }`}
+                  className={`p-3 border-[3px] rounded-[18px] cursor-pointer flex flex-col gap-2 transition-all ${isActive ? 'border-[#2C3E50] bg-[#4FD1C5] text-white shadow-[0_4px_0_#2C3E50] transform -translate-y-[2px]'
+                      : 'border-[#CBD5E0] bg-white text-[#2C3E50] hover:border-[#2C3E50] hover:shadow-[0_4px_0_#CBD5E0]'
+                    }`}
                 >
                   <Icon className="w-5 h-5 mb-1" />
                   <div>
@@ -937,7 +936,7 @@ function DeathScreen({ doctorName, onAccept }: { doctorName: string; onAccept: (
 
 function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
   const total = dims.caution + dims.rational + dims.skeptic + dims.independent;
-  const cp=dims.caution, rp=dims.rational, sp=dims.skeptic, ip=dims.independent;
+  const cp = dims.caution, rp = dims.rational, sp = dims.skeptic, ip = dims.independent;
 
   let p;
   // 分析師最高門檻（接近滿分 34 的 top 玩家）
@@ -950,7 +949,7 @@ function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
   // 分析師備用：不符具體 pattern 但理性 + 懷疑都極高
   else if (sp >= 7 && rp >= 7) p = PERSONALITIES[0];
   // 混沌判定（4 維差異小 或 其餘都不匹配）
-  else if (Math.max(cp,rp,sp,ip) - Math.min(cp,rp,sp,ip) <= 3) p = PERSONALITIES[5];
+  else if (Math.max(cp, rp, sp, ip) - Math.min(cp, rp, sp, ip) <= 3) p = PERSONALITIES[5];
   else p = PERSONALITIES[5]; // fallback 一律到混沌中立者
 
   // Demo override: 網址加 ?p=<id> 可直接強制該人格 (供 demo / 截圖使用)
@@ -970,120 +969,120 @@ function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
 
   return (
     <>
-    <motion.div
-      initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col min-h-[600px] w-full max-w-lg mx-auto bg-[#F0F4F8] text-[#2C3E50]"
-    >
-      <div className="p-8 flex-1 flex flex-col bg-white border-[4px] border-[#2C3E50] rounded-[32px] shadow-[10px_10px_0_#A0AEC0]">
-        
-        <div className="flex justify-between items-start border-b-[3px] border-[#CBD5E0] pb-4 mb-6">
-          <div>
-            <div className="font-black text-sm tracking-widest text-[#718096] uppercase">人間清醒醫院防詐人格診斷書</div>
-            <div className="text-xl font-black text-[#2C3E50] mt-1">STAY-WOKE REPORT</div>
-          </div>
-          <div className="text-right">
-            <div className="text-sm font-bold text-[#A0AEC0]">{new Date().toLocaleDateString('zh-TW')}</div>
-            <div className="text-xs text-[#A0AEC0] font-mono mt-1">NO. ER-2026</div>
-          </div>
-        </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col min-h-[600px] w-full max-w-lg mx-auto bg-[#F0F4F8] text-[#2C3E50]"
+      >
+        <div className="p-8 flex-1 flex flex-col bg-white border-[4px] border-[#2C3E50] rounded-[32px] shadow-[10px_10px_0_#A0AEC0]">
 
-        <div className="grid grid-cols-2 gap-4 mb-6 text-sm font-black text-[#4A5568]">
-          <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">受測醫師</span><span>{userName}</span></div>
-          <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">初始反應</span><span>{instinctLabel}</span></div>
-          <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1 col-span-2"><span className="text-[#A0AEC0]">人格類型標籤</span><span className="text-base text-[#2C3E50]">{p.typeShort}</span></div>
-        </div>
+          <div className="flex justify-between items-start border-b-[3px] border-[#CBD5E0] pb-4 mb-6">
+            <div>
+              <div className="font-black text-sm tracking-widest text-[#718096] uppercase">人間清醒醫院防詐人格診斷書</div>
+              <div className="text-xl font-black text-[#2C3E50] mt-1">STAY-WOKE REPORT</div>
+            </div>
+            <div className="text-right">
+              <div className="text-sm font-bold text-[#A0AEC0]">{new Date().toLocaleDateString('zh-TW')}</div>
+              <div className="text-xs text-[#A0AEC0] font-mono mt-1">NO. ER-2026</div>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-3 gap-2 bg-[#F0F4F8] border-[3px] border-[#2C3E50] rounded-[20px] p-2 mb-6">
-          <div className="bg-white p-3 text-center rounded-[12px] border-[2px] border-[#2C3E50]">
-            <div className="text-xs font-black text-[#718096] mb-1">警覺指數</div>
-            <div className={`text-xl font-black ${p.v1c}`}>{p.v1}</div>
+          <div className="grid grid-cols-2 gap-4 mb-6 text-sm font-black text-[#4A5568]">
+            <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">受測醫師</span><span>{userName}</span></div>
+            <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">初始反應</span><span>{instinctLabel}</span></div>
+            <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1 col-span-2"><span className="text-[#A0AEC0]">人格類型標籤</span><span className="text-base text-[#2C3E50]">{p.typeShort}</span></div>
           </div>
-          <div className="bg-white p-3 text-center rounded-[12px] border-[2px] border-[#2C3E50]">
-            <div className="text-xs font-black text-[#718096] mb-1">理性指數</div>
-            <div className={`text-xl font-black ${p.v2c}`}>{p.v2}</div>
-          </div>
-          <div className="bg-white p-3 text-center rounded-[12px] border-[2px] border-[#2C3E50]">
-            <div className="text-xs font-black text-[#718096] mb-1">防詐體質</div>
-            <div className={`text-xl font-black ${p.v3c}`}>{p.v3}</div>
-          </div>
-        </div>
 
-        <div className="bg-[#EBF8FF] border-[3px] border-[#2C3E50] rounded-[24px] p-6 mb-6 shadow-[4px_4px_0_#4299E1] relative overflow-hidden">
-           <div className={`absolute -right-4 -bottom-4 w-28 h-28 border-[4px] rounded-full flex justify-center items-center font-black text-xl rotate-[-15deg] opacity-80 bg-white ${p.stampClass}`}>
+          <div className="grid grid-cols-3 gap-2 bg-[#F0F4F8] border-[3px] border-[#2C3E50] rounded-[20px] p-2 mb-6">
+            <div className="bg-white p-3 text-center rounded-[12px] border-[2px] border-[#2C3E50]">
+              <div className="text-xs font-black text-[#718096] mb-1">警覺指數</div>
+              <div className={`text-xl font-black ${p.v1c}`}>{p.v1}</div>
+            </div>
+            <div className="bg-white p-3 text-center rounded-[12px] border-[2px] border-[#2C3E50]">
+              <div className="text-xs font-black text-[#718096] mb-1">理性指數</div>
+              <div className={`text-xl font-black ${p.v2c}`}>{p.v2}</div>
+            </div>
+            <div className="bg-white p-3 text-center rounded-[12px] border-[2px] border-[#2C3E50]">
+              <div className="text-xs font-black text-[#718096] mb-1">防詐體質</div>
+              <div className={`text-xl font-black ${p.v3c}`}>{p.v3}</div>
+            </div>
+          </div>
+
+          <div className="bg-[#EBF8FF] border-[3px] border-[#2C3E50] rounded-[24px] p-6 mb-6 shadow-[4px_4px_0_#4299E1] relative overflow-hidden">
+            <div className={`absolute -right-4 -bottom-4 w-28 h-28 border-[4px] rounded-full flex justify-center items-center font-black text-xl rotate-[-15deg] opacity-80 bg-white ${p.stampClass}`}>
               <span className="text-center">{p.stampText}</span>
-           </div>
-           
-           <div className="text-xs font-black text-[#2B6CB0] uppercase mb-1">防詐人格最終診斷</div>
-           <div className="text-3xl font-black text-[#2C3E50] mb-2">{p.title}</div>
-           <div className={`inline-block px-3 py-1 bg-white border-[2px] border-[#2C3E50] rounded-full text-sm font-black mb-4 ${p.rankColor}`}>{p.rank}</div>
-           
-           <div className="bg-white/60 p-4 border-[2px] border-dashed border-[#2C3E50] rounded-[16px] relative z-10">
+            </div>
+
+            <div className="text-xs font-black text-[#2B6CB0] uppercase mb-1">防詐人格最終診斷</div>
+            <div className="text-3xl font-black text-[#2C3E50] mb-2">{p.title}</div>
+            <div className={`inline-block px-3 py-1 bg-white border-[2px] border-[#2C3E50] rounded-full text-sm font-black mb-4 ${p.rankColor}`}>{p.rank}</div>
+
+            <div className="bg-white/60 p-4 border-[2px] border-dashed border-[#2C3E50] rounded-[16px] relative z-10">
               <div className="text-xs font-black text-[#4A5568] mb-1">臨床備註</div>
               <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">{p.remark}</p>
-           </div>
-        </div>
-
-        <div className="bg-[#FFFBEB] border-[3px] border-[#2C3E50] rounded-[20px] p-5 mb-6 shadow-[4px_4px_0_#D69E2E]">
-          <div className="flex items-center gap-1.5 text-[10px] font-black text-[#975A16] uppercase tracking-widest mb-3">
-            <Sparkles className="w-4 h-4" /> 自我認知對照 · Self-Awareness Check
-          </div>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-black mb-3">
-            <div className="flex items-center gap-2">
-              <span className="text-[#A0AEC0]">你宣稱:</span>
-              <span className="bg-white border-[2px] border-[#2C3E50] text-[#2C3E50] px-2 py-0.5 rounded-full whitespace-nowrap">{instinctLabel}</span>
-            </div>
-            <span className="text-[#A0AEC0]">→</span>
-            <div className="flex items-center gap-2">
-              <span className="text-[#A0AEC0]">診斷結果:</span>
-              <span className={`bg-white border-[2px] border-[#2C3E50] px-2 py-0.5 rounded-full whitespace-nowrap ${p.rankColor}`}>{p.title}</span>
             </div>
           </div>
-          <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">
-            {SELF_AWARENESS[instinct as Instinct]?.[p.id] ?? '你的選擇無法歸類，本院醫師也無從評論，祝你好運。'}
-          </p>
+
+          <div className="bg-[#FFFBEB] border-[3px] border-[#2C3E50] rounded-[20px] p-5 mb-6 shadow-[4px_4px_0_#D69E2E]">
+            <div className="flex items-center gap-1.5 text-[10px] font-black text-[#975A16] uppercase tracking-widest mb-3">
+              <Sparkles className="w-4 h-4" /> 自我認知對照 · Self-Awareness Check
+            </div>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-black mb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-[#A0AEC0]">你宣稱:</span>
+                <span className="bg-white border-[2px] border-[#2C3E50] text-[#2C3E50] px-2 py-0.5 rounded-full whitespace-nowrap">{instinctLabel}</span>
+              </div>
+              <span className="text-[#A0AEC0]">→</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[#A0AEC0]">診斷結果:</span>
+                <span className={`bg-white border-[2px] border-[#2C3E50] px-2 py-0.5 rounded-full whitespace-nowrap ${p.rankColor}`}>{p.title}</span>
+              </div>
+            </div>
+            <p className="text-sm font-bold text-[#2C3E50] leading-relaxed">
+              {SELF_AWARENESS[instinct as Instinct]?.[p.id] ?? '你的選擇無法歸類，本院醫師也無從評論，祝你好運。'}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3 mb-2">
+            <button
+              onClick={handleWeakness}
+              className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black text-base py-4 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all relative"
+            >
+              <Pill className="w-5 h-5" /> 領取我的個人化處方箋 RX
+              <span className="absolute -top-2 -right-2 bg-[#D69E2E] text-white text-[10px] font-black px-2 py-0.5 rounded-full border-[2px] border-[#2C3E50]">
+                NEW
+              </span>
+            </button>
+            <button onClick={handleShare} className="w-full bg-[#4FD1C5] text-white border-[3px] border-[#2C3E50] font-black text-sm py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all">
+              <Share2 className="w-4 h-4" /> 分享我的防詐人格
+            </button>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-3 mb-2">
-          <button
-            onClick={handleWeakness}
-            className="w-full bg-[#FF5252] text-white border-[3px] border-[#2C3E50] font-black text-base py-4 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all relative"
-          >
-            <Pill className="w-5 h-5" /> 領取我的個人化處方箋 RX
-            <span className="absolute -top-2 -right-2 bg-[#D69E2E] text-white text-[10px] font-black px-2 py-0.5 rounded-full border-[2px] border-[#2C3E50]">
-              NEW
-            </span>
-          </button>
-          <button onClick={handleShare} className="w-full bg-[#4FD1C5] text-white border-[3px] border-[#2C3E50] font-black text-sm py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all">
-            <Share2 className="w-4 h-4" /> 分享我的防詐人格
+        <div className="pt-6 flex justify-center pb-4">
+          <button onClick={onRestart} className="bg-white border-2 border-[#2C3E50] px-6 py-2 rounded-full text-[#4A5568] hover:bg-[#EDF2F7] hover:text-[#2C3E50] text-sm font-bold transition-colors shadow-[0_2px_0_#2C3E50]">
+            重新掛號（再測一次）
           </button>
         </div>
-      </div>
-
-      <div className="pt-6 flex justify-center pb-4">
-         <button onClick={onRestart} className="bg-white border-2 border-[#2C3E50] px-6 py-2 rounded-full text-[#4A5568] hover:bg-[#EDF2F7] hover:text-[#2C3E50] text-sm font-bold transition-colors shadow-[0_2px_0_#2C3E50]">
-            重新實習 (再測一次)
-         </button>
-      </div>
-    </motion.div>
-    <AnimatePresence>
-      {showRx && (
-        <Prescription
-          key="rx"
-          personality={p}
-          userName={userName}
-          onClose={() => setShowRx(false)}
-        />
-      )}
-      {showMedBag && (
-        <MedBagModal
-          key="medbag"
-          personality={p}
-          med={MED_BY_ID[p.id]}
-          userName={userName}
-          onClose={() => setShowMedBag(false)}
-        />
-      )}
-    </AnimatePresence>
+      </motion.div>
+      <AnimatePresence>
+        {showRx && (
+          <Prescription
+            key="rx"
+            personality={p}
+            userName={userName}
+            onClose={() => setShowRx(false)}
+          />
+        )}
+        {showMedBag && (
+          <MedBagModal
+            key="medbag"
+            personality={p}
+            med={MED_BY_ID[p.id]}
+            userName={userName}
+            onClose={() => setShowMedBag(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
@@ -1157,14 +1156,14 @@ function Prescription({ personality, userName, onClose }: any) {
               <ExternalLink className="w-4 h-4 shrink-0" />
             </a>
             {personality.secondaryCta && (
-            <a
-              href={personality.secondaryCta.url} target="_blank" rel="noopener noreferrer"
-              className="w-full bg-white text-[#2C3E50] border-[3px] border-[#2C3E50] font-black text-sm py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
-            >
-              <Sparkles className="w-4 h-4 text-[#D69E2E]" />
-              <span>{personality.secondaryCta.label}</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+              <a
+                href={personality.secondaryCta.url} target="_blank" rel="noopener noreferrer"
+                className="w-full bg-white text-[#2C3E50] border-[3px] border-[#2C3E50] font-black text-sm py-3 rounded-[16px] flex items-center justify-center gap-2 hover:-translate-y-1 hover:shadow-[0_4px_0_#2C3E50] transition-all"
+              >
+                <Sparkles className="w-4 h-4 text-[#D69E2E]" />
+                <span>{personality.secondaryCta.label}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             )}
           </div>
 
