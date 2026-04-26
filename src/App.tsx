@@ -560,7 +560,7 @@ function Onboarding({ name, setName, instinct, setInstinct, onStart }: any) {
                 <div
                   key={s} onClick={() => setInstinct(s)}
                   className={`p-3 border-[3px] rounded-[18px] cursor-pointer flex flex-col gap-2 transition-all ${isActive ? 'border-[#2C3E50] bg-[#4FD1C5] text-white shadow-[0_4px_0_#2C3E50] transform -translate-y-[2px]'
-                      : 'border-[#CBD5E0] bg-white text-[#2C3E50] hover:border-[#2C3E50] hover:shadow-[0_4px_0_#CBD5E0]'
+                    : 'border-[#CBD5E0] bg-white text-[#2C3E50] hover:border-[#2C3E50] hover:shadow-[0_4px_0_#CBD5E0]'
                     }`}
                 >
                   <Icon className="w-5 h-5 mb-1" />
@@ -987,7 +987,7 @@ function Result({ dims, userName, instinct, instinctLabel, onRestart }: any) {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-6 text-sm font-black text-[#4A5568]">
-            <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">受測醫師</span><span>{userName}</span></div>
+            <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">受測者</span><span>{userName}</span></div>
             <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1"><span className="text-[#A0AEC0]">初始反應</span><span>{instinctLabel}</span></div>
             <div className="flex justify-between border-b-2 border-dashed border-[#CBD5E0] pb-1 col-span-2"><span className="text-[#A0AEC0]">人格類型標籤</span><span className="text-base text-[#2C3E50]">{p.typeShort}</span></div>
           </div>
@@ -1120,7 +1120,7 @@ function Prescription({ personality, userName, onClose }: any) {
 
         <div className="p-6 space-y-5">
           <div className="grid grid-cols-2 gap-3 text-sm font-black border-b-2 border-dashed border-[#CBD5E0] pb-4">
-            <div className="flex flex-col"><span className="text-[#A0AEC0] text-[10px] uppercase tracking-widest">受測醫師</span><span className="text-[#2C3E50] mt-0.5">{userName}</span></div>
+            <div className="flex flex-col"><span className="text-[#A0AEC0] text-[10px] uppercase tracking-widest">受測者</span><span className="text-[#2C3E50] mt-0.5">{userName}</span></div>
             <div className="flex flex-col"><span className="text-[#A0AEC0] text-[10px] uppercase tracking-widest">診斷人格</span><span className="text-[#2C3E50] mt-0.5">{personality.title}</span></div>
             <div className="flex flex-col col-span-2"><span className="text-[#A0AEC0] text-[10px] uppercase tracking-widest">人格標籤</span><span className="text-[#4A5568] mt-0.5">{personality.typeShort}</span></div>
           </div>
